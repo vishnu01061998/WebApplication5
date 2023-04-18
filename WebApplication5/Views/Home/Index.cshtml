@@ -1,0 +1,58 @@
+﻿@model List< WebApplication5.models.Member>
+
+<html>
+    <head>
+        <title></title>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .table{
+            border:2px solid black;
+        }
+    </style>
+    </head>
+    <body>
+    <table class="table tbl-primary">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>age</td>
+                <td>Mobile number</td>
+                <td>Duration</td>
+                <td>joining</td>
+                <td>Gender</td>
+                <td>update</td>
+                <td>delete</td>
+
+
+            </tr>
+        </thead>
+        <tbody>
+
+
+
+            @foreach (var members in Model)
+
+            {
+                <tr>
+                    <td>@members.Id</td>
+                    <td>@members.Name</td>
+                    <td>@members.Age</td>
+                    <td>@members.Mobile</td>
+                    <td>@members.Duration</td>
+                    <td>@members.JoiningDate</td>
+                    <td>@members.Gender</td>
+                    <td><a href="#">update</a></td>
+                    <td><a href="#">Delete</a></td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <input type="submit" value="Create" />
+
+    <a href="Home/create/">cretae</a>
+    </body>
+</html>
