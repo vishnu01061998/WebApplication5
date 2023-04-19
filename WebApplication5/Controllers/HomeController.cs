@@ -13,16 +13,32 @@ namespace MVCPractice2.Controllers
             BrightmvcContext db = new BrightmvcContext();  
 
             var members = db.Members.ToList();
-            var employees = db.Employees.ToList();
-            var teachers = db.Teachers.ToList();
+            //var employees = db.Employees.ToList();
+            //var teachers = db.Teachers.ToList();
 
             return View(members);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 //32.22
-        }                                              
-
+        }
+        [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            Member member = new Member();
+
+            return View(member);
         }
+        [HttpPost]
+        public IActionResult Create(Member member)
+        {
+
+            BrightmvcContext db = new BrightmvcContext();
+            db.Members.Add(member);
+           db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+
+
+
         public IActionResult update()
         { 
             return View();
