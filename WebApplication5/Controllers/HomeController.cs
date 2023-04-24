@@ -36,12 +36,42 @@ namespace MVCPractice2.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult Delete(int Id)
+        {
+            BrightmvcContext db = new BrightmvcContext();
+            var member = db.Members.Find(Id);
+            
+            if (member != null)
+            {
+                db.Members.Remove(member);
+                db.SaveChanges();   
+            }
 
-
-
-        public IActionResult update()
-        { 
-            return View();
+            return RedirectToAction("Index");
         }
+
+
+        [HttpGet]
+        public IActionResult Update(int Id)
+        {
+            BrightmvcContext db = new BrightmvcContext();
+            var Members = db.Members.Find(Id);
+
+
+
+
+            return View(Members);
+        }
+        [HttpPost]
+        public IActionResult Update(Member member)
+        {
+
+            BrightmvcContext db = new BrightmvcContext();
+            db.Members.Update(member);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
     }
 }

@@ -1,0 +1,26 @@
+﻿@model WebApplication5.models.Member
+<html>
+<head>
+
+    <tile></tile>
+</head>
+<body>
+    <h1> Update new User</h1>
+    <form asp-controller="Home" asp-action="Update" method="post">
+        Name:
+        <input type="text" asp-for="Name" /><br />
+        Age:
+        <input type="text" asp-for="Age" /><br />
+        Mobile:
+        <input type="text" asp-for="Mobile" /><br />
+        Duration:
+        <input type="text" asp-for="Duration" /><br />
+        JoiningDate:
+        <input type="text" asp-for="JoiningDate" /><br />
+        Gender:
+        <input type="text" asp-for="Gender" /><br />
+
+        <input type="submit" value="Update" /><br />
+    </form>
+</body>
+</html>
